@@ -1,0 +1,11 @@
+node_modules/
+
+dist/*
+!dist/output.css
+/public/
+
+.env
+
+# OS の自動生成ファイル
+.DS_Store
+Thumbs.db
