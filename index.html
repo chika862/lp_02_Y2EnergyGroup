@@ -13,8 +13,30 @@
     <link rel="icon" href="static/img/favicon.ico" />
 
     <link rel="stylesheet" href="./dist/output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Shippori+Mincho&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <header class="flex justify-between items-center px-4 py-3 mx-auto">
+      <div class="">
+        <h1>
+          <img
+            src="images/logo.webp"
+            alt="株式会社Y2ENERGYGROUP"
+            class="w-[220px] h-auto"
+          />
+        </h1>
+      </div>
+      <div class="flex gap-2">
+        <img src="images/nav1.webp" alt="電話相談" class="w-[100px] h-auto" />
+        <img src="images/nav2.webp" alt="無料相談" class="w-[100px] h-auto" />
+      </div>
+    </header>
+    <section></section>
     <!-- 要注意セクション -->
     <section class="px-4">
       <p class="text-center py-6">
@@ -863,7 +885,7 @@
       <p class="text-center my-6 bg-red-300">3枚imgが入ります</p>
     </section>
     <!-- フォームセクション -->
-    <section class="px-4 py-8">
+    <!-- <section class="px-4 py-8">
       <div class="max-w-md mx-auto bg-[#f5e6dc] p-6 rounded-lg">
         <form
           id="contactForm"
@@ -871,7 +893,6 @@
           method="POST"
           target="hidden_iframe"
         >
-          <!-- 現在の使用の電気代 -->
           <div class="mb-8">
             <label class="block text-gray-800 font-medium mb-4">
               現在の使用の電気代
@@ -921,10 +942,8 @@
             </div>
           </div>
 
-          <!-- 区切り線 -->
           <hr class="border-gray-400 my-6" />
 
-          <!-- 現在の使用のガス代 -->
           <div class="mb-6">
             <label class="block text-gray-800 font-medium mb-4">
               現在の使用のガス代
@@ -981,7 +1000,6 @@
           </button>
         </form>
 
-        <!-- 送信完了メッセージ -->
         <div id="thankYouMessage" class="hidden text-center py-8">
           <div
             class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded"
@@ -993,9 +1011,32 @@
 
         <iframe name="hidden_iframe" style="display: none"></iframe>
       </div>
+    </section> -->
+    <section>
+      <iframe
+        name="hidden_iframe"
+        id="hidden_iframe"
+        style="display: none"
+        onload="if(submitted){window.location='https://www.google.co.jp/'}"
+      ></iframe>
+      <form
+        class="form_wrap h-adr"
+        id="form"
+        method="post"
+        target="hidden_iframe"
+        onsubmit="submitted=true"
+        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdAcwczG4LAKK8dHtyl7Sah-llnqBjah7kOsHjcejfnEgcmhw/formResponse"
+      >
+        <div class="">
+          <p class="">
+            <span class="">氏名</span>
+          </p>
+          <input type="text" placeholder="氏名" name="entry.1800086046" />
+        </div>
+        <button type="submit" value="送信">送信</button>
+      </form>
     </section>
-
-    <script>
+    <!-- <script>
       // フォーム送信後の処理
       const form = document.getElementById("contactForm");
       const thankYouMessage = document.getElementById("thankYouMessage");
@@ -1019,6 +1060,6 @@
           }
         });
       });
-    </script>
+    </script> -->
   </body>
 </html>
