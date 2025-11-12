@@ -2,11 +2,12 @@
 
 @theme {
   --font-sans: "Noto Sans", sans-serif;
+  --font-serif: "Noto Serif JP", serif;
   --font-mincho: "Shippori Mincho", serif;
   --color-background: #eeeeee;
   --color-basecolor: #515266;
 }
 
 .green-gradient {
-  background: linear-gradient(90deg, #4fac00, #5af300);
+  background: linear-gradient(120deg, #4fac00, #5af300);
 }
