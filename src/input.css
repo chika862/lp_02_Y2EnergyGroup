@@ -11,3 +11,10 @@
 .green-gradient {
   background: linear-gradient(120deg, #4fac00, #5af300);
 }
+
+.text-gradient {
+  background: linear-gradient(to right, #4fac00, #5af300);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
