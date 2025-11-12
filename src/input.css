@@ -6,3 +6,7 @@
   --color-background: #eeeeee;
   --color-basecolor: #515266;
 }
+
+.green-gradient {
+  background: linear-gradient(90deg, #4fac00, #5af300);
+}
