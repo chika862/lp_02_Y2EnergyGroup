@@ -4,6 +4,7 @@
   --font-sans: "Noto Sans", sans-serif;
   --font-serif: "Noto Serif JP", serif;
   --font-mincho: "Shippori Mincho", serif;
+  --font-cinzel: "Cinzel";
   --color-background: #eeeeee;
   --color-basecolor: #515266;
 }
@@ -14,6 +15,13 @@
 
 .text-gradient {
   background: linear-gradient(to right, #4fac00, #5af300);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(to right, #4faafb, #5bf2ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
