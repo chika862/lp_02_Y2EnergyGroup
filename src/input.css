@@ -26,3 +26,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+address {
+  font-style: normal;
+}
