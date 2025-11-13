@@ -37,6 +37,7 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
+    --tracking-tighter: -0.05em;
     --tracking-wider: 0.05em;
     --tracking-widest: 0.1em;
     --leading-tight: 1.25;
@@ -447,6 +448,9 @@
   }
   .w-\[22\%\] {
     width: 22%;
+  }
+  .w-\[30\%\] {
+    width: 30%;
   }
   .w-\[33\%\] {
     width: 33%;
@@ -985,6 +989,10 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
+  .tracking-\[0\.01rem\] {
+    --tw-tracking: 0.01rem;
+    letter-spacing: 0.01rem;
+  }
   .tracking-\[0\.1rem\] {
     --tw-tracking: 0.1rem;
     letter-spacing: 0.1rem;
@@ -993,9 +1001,21 @@
     --tw-tracking: 0.2rem;
     letter-spacing: 0.2rem;
   }
+  .tracking-\[0\.03rem\] {
+    --tw-tracking: 0.03rem;
+    letter-spacing: 0.03rem;
+  }
   .tracking-\[0\.3rem\] {
     --tw-tracking: 0.3rem;
     letter-spacing: 0.3rem;
+  }
+  .tracking-\[0\.04rem\] {
+    --tw-tracking: 0.04rem;
+    letter-spacing: 0.04rem;
+  }
+  .tracking-\[0\.05rem\] {
+    --tw-tracking: 0.05rem;
+    letter-spacing: 0.05rem;
   }
   .tracking-\[0\.7rem\] {
     --tw-tracking: 0.7rem;
@@ -1008,6 +1028,10 @@
   .tracking-\[0\.25rem\] {
     --tw-tracking: 0.25rem;
     letter-spacing: 0.25rem;
+  }
+  .tracking-tighter {
+    --tw-tracking: var(--tracking-tighter);
+    letter-spacing: var(--tracking-tighter);
   }
   .tracking-wider {
     --tw-tracking: var(--tracking-wider);
