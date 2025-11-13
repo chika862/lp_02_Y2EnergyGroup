@@ -9,6 +9,7 @@
       "Courier New", monospace;
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-gray-600: oklch(44.6% 0.03 256.802);
     --color-gray-700: oklch(37.3% 0.034 259.733);
@@ -231,6 +232,9 @@
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
+  .right-1 {
+    right: calc(var(--spacing) * 1);
+  }
   .right-5 {
     right: calc(var(--spacing) * 5);
   }
@@ -288,6 +292,9 @@
   .my-8 {
     margin-block: calc(var(--spacing) * 8);
   }
+  .my-10 {
+    margin-block: calc(var(--spacing) * 10);
+  }
   .-mt-3 {
     margin-top: calc(var(--spacing) * -3);
   }
@@ -339,11 +346,20 @@
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
   }
+  .mb-10 {
+    margin-bottom: calc(var(--spacing) * 10);
+  }
   .ml-2 {
     margin-left: calc(var(--spacing) * 2);
   }
   .ml-4 {
     margin-left: calc(var(--spacing) * 4);
+  }
+  .ml-5 {
+    margin-left: calc(var(--spacing) * 5);
+  }
+  .ml-\[20px\] {
+    margin-left: 20px;
   }
   .block {
     display: block;
@@ -383,6 +399,15 @@
   }
   .h-\[2\.6rem\] {
     height: 2.6rem;
+  }
+  .h-\[30px\] {
+    height: 30px;
+  }
+  .h-\[50px\] {
+    height: 50px;
+  }
+  .h-\[60px\] {
+    height: 60px;
   }
   .h-auto {
     height: auto;
@@ -432,6 +457,9 @@
   .w-\[50\%\] {
     width: 50%;
   }
+  .w-\[55\%\] {
+    width: 55%;
+  }
   .w-\[60\%\] {
     width: 60%;
   }
@@ -449,6 +477,12 @@
   }
   .w-\[90\%\] {
     width: 90%;
+  }
+  .w-\[90px\] {
+    width: 90px;
+  }
+  .w-\[95px\] {
+    width: 95px;
   }
   .w-\[100px\] {
     width: 100px;
@@ -580,6 +614,13 @@
       margin-inline-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-x-reverse)));
     }
   }
+  .space-x-9 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 9) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 9) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
   .self-end {
     align-self: flex-end;
   }
@@ -639,6 +680,9 @@
   }
   .bg-\[\#1a3480\] {
     background-color: #1a3480;
+  }
+  .bg-\[\#4fac00\] {
+    background-color: #4fac00;
   }
   .bg-\[\#c5e1df\] {
     background-color: #c5e1df;
@@ -724,6 +768,9 @@
   .py-6 {
     padding-block: calc(var(--spacing) * 6);
   }
+  .py-8 {
+    padding-block: calc(var(--spacing) * 8);
+  }
   .py-9 {
     padding-block: calc(var(--spacing) * 9);
   }
@@ -742,11 +789,20 @@
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
   }
+  .pt-7 {
+    padding-top: calc(var(--spacing) * 7);
+  }
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
   }
   .pt-9 {
     padding-top: calc(var(--spacing) * 9);
+  }
+  .pt-10 {
+    padding-top: calc(var(--spacing) * 10);
+  }
+  .pt-\[50px\] {
+    padding-top: 50px;
   }
   .pt-\[60px\] {
     padding-top: 60px;
@@ -774,6 +830,9 @@
   }
   .pb-20 {
     padding-bottom: calc(var(--spacing) * 20);
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
   }
   .text-center {
     text-align: center;
@@ -827,6 +886,9 @@
   .text-\[0\.5rem\] {
     font-size: 0.5rem;
   }
+  .text-\[0\.6rem\] {
+    font-size: 0.6rem;
+  }
   .text-\[0\.7rem\] {
     font-size: 0.7rem;
   }
@@ -836,11 +898,23 @@
   .text-\[0\.9rem\] {
     font-size: 0.9rem;
   }
+  .text-\[0\.55rem\] {
+    font-size: 0.55rem;
+  }
   .text-\[0\.65rem\] {
     font-size: 0.65rem;
   }
   .text-\[0\.75rem\] {
     font-size: 0.75rem;
+  }
+  .text-\[0\.85rem\] {
+    font-size: 0.85rem;
+  }
+  .text-\[1\.1rem\] {
+    font-size: 1.1rem;
+  }
+  .text-\[1\.2rem\] {
+    font-size: 1.2rem;
   }
   .text-\[1\.3rem\] {
     font-size: 1.3rem;
@@ -859,6 +933,9 @@
   }
   .text-\[1\.9rem\] {
     font-size: 1.9rem;
+  }
+  .text-\[1\.65rem\] {
+    font-size: 1.65rem;
   }
   .text-\[1rem\] {
     font-size: 1rem;
@@ -907,6 +984,10 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+  }
+  .tracking-\[0\.1rem\] {
+    --tw-tracking: 0.1rem;
+    letter-spacing: 0.1rem;
   }
   .tracking-\[0\.2rem\] {
     --tw-tracking: 0.2rem;
@@ -1012,6 +1093,16 @@
     &::placeholder {
       --tw-leading: var(--leading-normal);
       line-height: var(--leading-normal);
+    }
+  }
+  .placeholder\:text-gray-300 {
+    &::placeholder {
+      color: var(--color-gray-300);
+    }
+  }
+  .placeholder\:text-gray-400 {
+    &::placeholder {
+      color: var(--color-gray-400);
     }
   }
   .hover\:bg-\[\#4fac00\] {
