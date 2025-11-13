@@ -28,10 +28,10 @@
     class="font-sans font-medium tracking-wider leading-relaxed text-basecolor"
   >
     <header
-      class="h-[50px] flex justify-between items-center px-2 py-2 mx-auto gap-2 fixed top-0 left-0 right-0 bg-white z-50 transition-transform duration-300"
+      class="h-[50px] lg:h-[70px] flex justify-between items-center px-2 py-2 mx-auto gap-2 fixed top-0 left-0 right-0 bg-white z-50 transition-transform duration-300"
       id="header"
     >
-      <div class="shrink-0 max-w-[46%]">
+      <div class="shrink-0 max-w-[46%] lg:max-w-[30%] lg:pl-10">
         <h1>
           <a href="#fv">
             <img
@@ -41,62 +41,86 @@
           /></a>
         </h1>
       </div>
-      <div class="flex gap-1 sm:gap-1 shrink-0 max-w-[48%]">
+      <div
+        class="flex gap-1 sm:gap-1 lg:gap-5 shrink-0 max-w-[48%] lg:max-w-[30%] lg:pr-10"
+      >
         <a href="tel:0120181182"
           ><img
             src="images/nav1.webp"
             alt="電話相談"
-            class="w-[100px] h-auto object-contain"
+            class="w-[100px] lg:w-[170px] h-auto object-contain"
         /></a>
         <a href="">
           <img
             src="images/nav2.webp"
             alt="無料相談"
-            class="w-[100px] h-auto object-contain"
+            class="w-[100px] lg:w-[170px] h-auto object-contain"
         /></a>
       </div>
     </header>
     <!-- FV セクション -->
     <section id="fv" class="bg-background">
-      <img
-        src="images/fv-1.webp"
-        alt="月々の電気代を大幅に削減したい方"
-        class="w-[85%] mx-auto pt-[50px]"
-      />
-      <img
-        src="images/fv-text1.svg"
-        alt="ちょっと待って！"
-        class="w-[50%] mt-6 mx-auto"
-      />
-      <h2
-        class="text-center py-6 px-4 font-mincho text-basecolor font-semibold"
-      >
-        <span class="block text-3xl mb-2 tracking-wider"
-          >太陽光発電・蓄電池</span
+      <div class="lg:w-[50%] mx-auto">
+        <img
+          src="images/fv-1.webp"
+          alt="月々の電気代を大幅に削減したい方"
+          class="block lg:hidden w-[85%] lg:w-[70%] mx-auto pt-[50px]"
+        />
+        <img
+          src="images/fv-1-pc.webp"
+          alt="月々の電気代を大幅に削減したい方"
+          class="hidden lg:block lg:w-[80%] mx-auto pt-[50px]"
+        />
+        <img
+          src="images/fv-text1.svg"
+          alt="ちょっと待って！"
+          class="w-[50%] lg:w-[40%] mt-6 lg:mt-12 mx-auto"
+        />
+        <h2
+          class="text-center py-6 px-4 font-mincho text-basecolor font-semibold"
         >
-        <span class="flex items-center justify-center gap-2">
-          <span class="text-6xl font-bold">安さ</span>
-          <span class="text-xl leading-relaxed pt-2 text-left"
-            >だけで選ぼうと<br />していませんか？</span
+          <span
+            class="block text-3xl lg:text-6xl mb-2 tracking-wider lg:tracking-[0.5rem]"
+            >太陽光発電・蓄電池</span
           >
-        </span>
-      </h2>
-      <img src="images/fv-2.webp" alt="太陽光パネル・蓄電池のイメージ写真" />
+          <span class="flex items-center justify-center gap-2">
+            <span class="text-6xl lg:text-[9rem] font-bold">安さ</span>
+            <span
+              class="text-xl lg:text-[3rem] leading-relaxed pt-2 lg:pt-6 text-left"
+              >だけで選ぼうと<br />していませんか？</span
+            >
+          </span>
+        </h2>
+      </div>
+      <img
+        src="images/fv-2.webp"
+        class="block lg:hidden"
+        alt="太陽光パネル・蓄電池のイメージ写真"
+      />
+      <img
+        src="images/fv-2-pc.webp"
+        class="hidden lg:block"
+        alt="太陽光パネル・蓄電池のイメージ写真"
+      />
 
-      <div class="w-[90%] text-center mx-auto">
-        <p class="py-5">
+      <div class="w-[90%] lg:w-[50%] text-center mx-auto">
+        <p class="py-5 lg:text-3xl lg:my-9 lg:leading-relaxed">
           <span class="text-[#d7444a] font-bold">豊富な施工実績</span>と<span
             class="text-[#d7444a] font-bold"
             >安心の4大保証</span
-          >で<br />選ばれ続けている<br />Y2ENERGYGROUPにお任せください
+          >で<br
+            class="lg:hidden"
+          />選ばれ続けている<br />Y2ENERGYGROUPにお任せください
         </p>
         <a href="#form"
           ><img
             src="images/conv-btn.webp"
-            class="w-[90%] mx-auto"
+            class="w-[90%] lg:w-[70%] mx-auto"
             alt="経験豊富なプロに無料相談・見積もりを依頼する"
         /></a>
-        <div class="flex gap-5 justify-center py-8">
+        <div
+          class="flex gap-5 justify-center lg:justify-between py-8 lg:gap-10 lg:py-15"
+        >
           <img
             src="images/fv-3.webp"
             alt="施工の様子"
@@ -118,21 +142,25 @@
     <!-- チェックシートセクション -->
     <section>
       <div class="bg-background relative">
-        <div class="w-[80%] mx-auto pb-10">
+        <div class="w-[80%] lg:w-[50%] mx-auto pb-10 lg:pb-20">
           <img
             src="images/kakunin.webp"
             alt="確認必須！"
-            class="w-[95px] ml-5"
+            class="w-[95px] lg:w-[180px] ml-5 lg:ml-[120px]"
           />
-          <h2 class="text-[18px] font-bold pt-1 text-center">
+          <h2 class="text-[1.1rem] lg:text-[3rem] font-bold pt-1 text-center">
             施工業者選びで失敗しないための<br /><span
-              class="text-[#d7444a] text-3xl font-extrabold tracking-wider"
+              class="text-[#d7444a] text-3xl lg:text-[5rem] font-extrabold tracking-wider"
               >簡単15秒</span
             >チェックシート
           </h2>
         </div>
         <div class="absolute bottom-0 left-0 right-0 translate-y-1/2">
-          <img src="images/tri.svg" alt="" class="w-[80%] h-auto mx-auto" />
+          <img
+            src="images/tri.svg"
+            alt=""
+            class="w-[80%] lg:w-[30%] h-auto mx-auto"
+          />
         </div>
       </div>
       <p class="w-[80%] mx-auto text-center py-9 mt-6">
