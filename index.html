@@ -27,14 +27,18 @@
   <body
     class="font-sans font-medium tracking-wider leading-relaxed text-basecolor"
   >
-    <header class="flex justify-between items-center px-2 py-2 mx-auto gap-2">
+    <header
+      class="flex justify-between items-center px-2 py-2 mx-auto gap-2 fixed top-0 left-0 right-0 bg-white z-50 transition-transform duration-300"
+      id="header"
+    >
       <div class="shrink-0 max-w-[46%]">
         <h1>
-          <img
-            src="images/logo.webp"
-            alt="株式会社Y2ENERGYGROUP"
-            class="w-full h-auto"
-          />
+          <a href="#fv">
+            <img
+              src="images/logo.webp"
+              alt="株式会社Y2ENERGYGROUP"
+              class="w-full h-auto"
+          /></a>
         </h1>
       </div>
       <div class="flex gap-1 sm:gap-1 shrink-0 max-w-[48%]">
@@ -53,11 +57,11 @@
       </div>
     </header>
     <!-- FV セクション -->
-    <section class="bg-background">
+    <section id="fv" class="bg-background">
       <img
         src="images/fv-1.webp"
         alt="月々の電気代を大幅に削減したい方"
-        class="w-[85%] mx-auto"
+        class="w-[85%] mx-auto pt-[60px]"
       />
       <img
         src="images/fv-text1.svg"
@@ -1913,6 +1917,36 @@
           submitted = false;
         }
       });
+    </script>
+    <script>
+      // ヘッダーのスクロール追従制御
+      let lastScrollTop = 0;
+      const header = document.getElementById("header");
+      const scrollThreshold = 10; // スクロールの閾値
+
+      window.addEventListener(
+        "scroll",
+        function () {
+          const currentScroll =
+            window.pageYOffset || document.documentElement.scrollTop;
+
+          // スクロール量が閾値以下の場合は常に表示
+          if (currentScroll <= scrollThreshold) {
+            header.style.transform = "translateY(0)";
+          }
+          // 下にスクロールした場合、ヘッダーを隠す
+          else if (currentScroll > lastScrollTop) {
+            header.style.transform = "translateY(-100%)";
+          }
+          // 上にスクロールした場合、ヘッダーを表示
+          else {
+            header.style.transform = "translateY(0)";
+          }
+
+          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        },
+        false
+      );
     </script>
   </body>
 </html>
