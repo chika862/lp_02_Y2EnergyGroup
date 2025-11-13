@@ -1503,7 +1503,6 @@
           name="hidden_iframe"
           id="hidden_iframe"
           style="display: none"
-          onload="if(submitted){window.location='https://www.google.co.jp/'}"
         ></iframe>
 
         <form
@@ -1511,7 +1510,6 @@
           id="form"
           method="post"
           target="hidden_iframe"
-          onsubmit="submitted=true"
           action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSelmn2HlSnDmF32On4motf9mGMQ2xqRpct4fWKdzOxFsxmG9A/formResponse"
         >
           <div class="bg-white rounden-xl px-6 py-6 font-mincho mt-6">
@@ -1851,6 +1849,42 @@
         </form>
       </div>
     </section>
+
+    <!-- 送信完了モーダル -->
+    <div
+      id="submitModal"
+      class="fixed inset-0 flex items-center justify-center z-50"
+      style="background-color: rgba(0, 0, 0, 0.5); display: none"
+    >
+      <div class="bg-white rounded-lg p-8 max-w-sm mx-4 text-center">
+        <div class="mb-4">
+          <svg
+            class="w-16 h-16 text-green-500 mx-auto"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </div>
+        <h2 class="text-2xl font-bold mb-2 font-mincho">送信しました</h2>
+        <p class="text-gray-600 mb-6 font-sans text-sm">
+          担当者から改めてご連絡いたします。
+        </p>
+        <button
+          onclick="document.getElementById('submitModal').style.display='none'"
+          class="bg-basecolor text-white px-6 py-2 rounded font-sans hover:opacity-90 transition-opacity"
+        >
+          閉じる
+        </button>
+      </div>
+    </div>
+
     <!-- <script>
       // フォーム送信後の処理
       const form = document.getElementById("contactForm");
@@ -1882,14 +1916,16 @@
       const ownershipCheckbox = document.getElementById("ownershipCheckbox");
       const checkboxError = document.getElementById("checkboxError");
       const submitButton = document.getElementById("submitButton");
+      const submitModal = document.getElementById("submitModal");
+      let submitted = false;
 
       // フォーム送信時のバリデーション
       form.addEventListener("submit", function (event) {
         // チェックボックスがチェックされていない場合
         if (!ownershipCheckbox.checked) {
-          event.preventDefault(); // フォーム送信を中止
-          event.stopPropagation(); // イベント伝播を停止
-          checkboxError.classList.remove("hidden"); // エラーメッセージを表示
+          event.preventDefault();
+          event.stopPropagation();
+          checkboxError.classList.remove("hidden");
 
           // チェックボックスの位置までスクロール
           ownershipCheckbox.scrollIntoView({
@@ -1897,8 +1933,11 @@
             block: "center",
           });
 
-          return false; // 送信を確実に中止
+          return false;
         }
+
+        // フォーム送信が正常に行われる場合
+        submitted = true;
       });
 
       // 送信ボタンのクリック時にもバリデーション
@@ -1922,6 +1961,18 @@
       ownershipCheckbox.addEventListener("change", function () {
         if (ownershipCheckbox.checked) {
           checkboxError.classList.add("hidden");
+        }
+      });
+
+      // iframeのロード完了を検知してモーダルを表示
+      const iframe = document.getElementById("hidden_iframe");
+      iframe.addEventListener("load", function () {
+        if (submitted) {
+          // モーダルを表示
+          submitModal.style.display = "flex";
+          // フォームをリセット
+          form.reset();
+          submitted = false;
         }
       });
     </script>
