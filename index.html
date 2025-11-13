@@ -1698,53 +1698,6 @@
             </div>
             <div class="border-basecolor w-full border-t-[0.1px] my-4"></div>
 
-            <!-- <div class="Form-Item first">
-              <p class="Form-Item-Label">
-                <span class="Form-Item-Label-Required">現在の使用の電気代</span
-                ><span class="fontsize12">必須</span>
-              </p>
-              <fieldset>
-                <div class="radio-list">
-                  <input
-                    type="radio"
-                    id="huey"
-                    name="entry.1270370392"
-                    value="5,000円以上"
-                    checked
-                  />
-                  <label for="huey">5,000円以上</label>
-                </div>
-                <div>
-                  <input
-                    type="radio"
-                    id="dewey"
-                    name="entry.1270370392"
-                    value="10,000円以上"
-                  />
-                  <label for="dewey">10,000円以上</label>
-                </div>
-                <div>
-                  <input
-                    type="radio"
-                    id="louie"
-                    name="entry.1270370392"
-                    value="15,000円以上"
-                  />
-                  <label for="louie">15,000円以上</label>
-                </div>
-                <div>
-                  <input
-                    type="radio"
-                    id="louie"
-                    name="entry.1270370392"
-                    value="20,000円以上"
-                  />
-                  <label for="louie">20,000円以上</label>
-                </div>
-              </fieldset>
-            </div>
-            <div class="border-basecolor w-full border-t-[0.1px] my-4"></div> -->
-
             <div>
               <p class="mb-1">
                 郵便番号<span
@@ -1862,23 +1815,30 @@
               />
             </div>
 
-            <!-- <div class="my-5">
+            <div class="my-5">
               <label class="custom-checkbox text-[0.9rem] font-semibold">
-                <input type="checkbox" />
+                <input type="checkbox" id="ownershipCheckbox" required />
                 <span class="checkmark"></span>
                 ご所有の戸建てが、今回の現地コンサルティング対象
               </label>
+              <p
+                id="checkboxError"
+                class="font-sans text-[0.9rem] bg-[#d7444a] text-white p-1 mt-2 hidden"
+              >
+                ↑このチェックボックスをオンにしてください
+              </p>
               <p class="font-sans text-[0.7rem] mt-3">
                 ※1戸建て所有のお客様に限ります。借家・マンション部屋所有等は対象外となります。
               </p>
               <p class="font-sans text-[0.7rem]">
                 ※当社はお客様に適切な商品を提供するため、パンフレットのみ送付等は行っておりませんのでご了承ください。
               </p>
-            </div> -->
+            </div>
 
             <div>
               <input
                 type="image"
+                id="submitButton"
                 src="images/submit.svg"
                 alt="記入内容を確認のうえ、上記内容で送信する"
                 value="送信"
@@ -1916,5 +1876,54 @@
         });
       });
     </script> -->
+    <script>
+      // チェックボックスのバリデーション
+      const form = document.getElementById("form");
+      const ownershipCheckbox = document.getElementById("ownershipCheckbox");
+      const checkboxError = document.getElementById("checkboxError");
+      const submitButton = document.getElementById("submitButton");
+
+      // フォーム送信時のバリデーション
+      form.addEventListener("submit", function (event) {
+        // チェックボックスがチェックされていない場合
+        if (!ownershipCheckbox.checked) {
+          event.preventDefault(); // フォーム送信を中止
+          event.stopPropagation(); // イベント伝播を停止
+          checkboxError.classList.remove("hidden"); // エラーメッセージを表示
+
+          // チェックボックスの位置までスクロール
+          ownershipCheckbox.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+
+          return false; // 送信を確実に中止
+        }
+      });
+
+      // 送信ボタンのクリック時にもバリデーション
+      submitButton.addEventListener("click", function (event) {
+        if (!ownershipCheckbox.checked) {
+          event.preventDefault();
+          event.stopPropagation();
+          checkboxError.classList.remove("hidden");
+
+          // チェックボックスの位置までスクロール
+          ownershipCheckbox.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+
+          return false;
+        }
+      });
+
+      // チェックボックスがチェックされたらエラーメッセージを非表示
+      ownershipCheckbox.addEventListener("change", function () {
+        if (ownershipCheckbox.checked) {
+          checkboxError.classList.add("hidden");
+        }
+      });
+    </script>
   </body>
 </html>
