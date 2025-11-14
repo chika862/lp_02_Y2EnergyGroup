@@ -33,6 +33,11 @@ address {
 /* スムーズスクロール */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 /* カスタムチェックボックス */
@@ -131,4 +136,22 @@ html {
 .scroll-fade.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ボタン画像ホバーエフェクト */
+.scroll-fade.btn-hover.visible {
+  transition: opacity 0.5s ease-out, transform 0.3s ease;
+}
+
+.scroll-fade.btn-hover.visible:hover {
+  transform: translateY(0) scale(1.05);
+}
+
+/* 送信ボタンホバーエフェクト */
+#submitButton {
+  transition: transform 0.3s ease;
+}
+
+#submitButton:hover {
+  transform: scale(1.05);
 }
