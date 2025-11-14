@@ -28,7 +28,7 @@
     class="font-sans font-medium tracking-wider leading-relaxed text-basecolor"
   >
     <header
-      class="h-[50px] md:h-[60px] lg:h-[70px] flex justify-between items-center px-2 py-2 mx-auto gap-2 fixed top-0 left-0 right-0 bg-white z-50 transition-transform duration-300"
+      class="shadow-sm h-[50px] md:h-[60px] lg:h-[70px] flex justify-between items-center px-2 py-2 mx-auto gap-2 fixed top-0 left-0 right-0 bg-white z-50 transition-transform duration-300"
       id="header"
     >
       <div class="shrink-0 max-w-[46%] md:max-w-[37%] lg:max-w-[30%] lg:pl-10">
@@ -64,20 +64,20 @@
         <img
           src="images/fv-1.webp"
           alt="月々の電気代を大幅に削減したい方"
-          class="block lg:hidden w-[85%] lg:w-[70%] mx-auto pt-[50px]"
+          class="fv-content delay-1 block lg:hidden w-[85%] lg:w-[70%] mx-auto pt-[50px]"
         />
         <img
           src="images/fv-1-pc.webp"
           alt="月々の電気代を大幅に削減したい方"
-          class="hidden lg:block lg:w-[80%] mx-auto pt-[50px]"
+          class="fv-content delay-1 hidden lg:block lg:w-[80%] mx-auto pt-[50px]"
         />
         <img
           src="images/fv-text1.svg"
           alt="ちょっと待って！"
-          class="w-[50%] lg:w-[40%] mt-6 lg:mt-8 mx-auto"
+          class="fv-content delay-2 w-[50%] lg:w-[40%] mt-6 lg:mt-8 mx-auto"
         />
         <h2
-          class="text-center py-6 px-4 font-mincho text-basecolor font-semibold"
+          class="fv-content delay-3 text-center py-6 px-4 font-mincho text-basecolor font-semibold"
         >
           <span
             class="block text-3xl md:text-4xl lg:text-6xl mb-2 tracking-wider lg:tracking-[0.5rem]"
@@ -96,16 +96,18 @@
       </div>
       <img
         src="images/fv-2.webp"
-        class="block lg:hidden"
+        class="fv-content delay-4 block lg:hidden"
         alt="太陽光パネル・蓄電池のイメージ写真"
       />
       <img
         src="images/fv-2-pc.webp"
-        class="hidden lg:block lg:max-w-[1920px] lg:mx-auto"
+        class="fv-content delay-4 hidden lg:block lg:max-w-[1920px] lg:mx-auto"
         alt="太陽光パネル・蓄電池のイメージ写真"
       />
 
-      <div class="w-[90%] lg:w-[50%] lg:max-w-[960px] text-center mx-auto">
+      <div
+        class="scroll-fade w-[90%] lg:w-[50%] lg:max-w-[960px] text-center mx-auto"
+      >
         <p class="py-5 md:text-2xl lg:text-3xl md:my-9 md:leading-relaxed">
           <span class="text-[#d7444a] font-bold">豊富な施工実績</span>と<span
             class="text-[#d7444a] font-bold"
@@ -175,13 +177,15 @@
         class="w-[80%] lg:w-[50%] mx-auto text-center py-9 mt-6 md:text-[1rem] lg:mt-18 lg:pb-12 lg:text-[1.4rem]"
       >
         太陽光発電や蓄電池を導入する際、<br
-          class="lg:hidden"
+          class="md:hidden"
         />「安さ」だけで選んでいませんか？<br />実は、その判断が後悔やトラブルの原因になることも・・・
       </p>
-      <div class="bg-background w-[90%] lg:w-[960px] mx-auto py-6">
+      <div
+        class="bg-background lg:pt-12 lg:pb-20 w-[90%] lg:w-[960px] mx-auto py-6"
+      >
         <div class="max-w-md md:max-w-[80%] mx-auto px-3 font-mincho">
           <h2
-            class="text-center text-2xl lg:text-4xl font-semibold mb-8 text-basecolor lg:flex lg:items-center lg:justify-center lg:gap-2 lg:py-6"
+            class="text-center text-2xl lg:text-3xl font-semibold mb-8 text-basecolor lg:flex lg:items-center lg:justify-center lg:gap-2 lg:py-6"
           >
             これらに当てはまる業者は
             <span class="inline-flex items-center gap-1 lg:mt-0 mt-2">
@@ -458,10 +462,10 @@
         alt="じゃあどんな業者を選べばいいの？"
         class="w-[70%] lg:w-[50%] md:w-[55%] lg:max-w-[960px] mx-auto my-7 lg:my-14"
       />
-      <div class="py-6 green-gradient">
+      <div class="py-6 lg:pt-12 lg:pb-20 green-gradient">
         <div class="max-w-md md:max-w-full md:w-[80%] lg:w-[90%] mx-auto px-3">
           <h2
-            class="text-center text-[1.2rem] md:text-[1.8rem] lg:text-[2.2rem] mb-8 text-white font-mincho font-semibold"
+            class="text-center text-[1.2rem] md:text-[1.8rem] lg:text-[2.2rem] mb-8 lg:mb-14 text-white font-mincho font-semibold"
           >
             施工評者選びで損しないために<br
               class="lg:hidden"
@@ -2264,6 +2268,28 @@
         },
         false
       );
+    </script>
+    <script>
+      // スクロールアニメーション
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // .scroll-fadeクラスを持つ全ての要素を監視
+      document.addEventListener("DOMContentLoaded", () => {
+        const scrollElements = document.querySelectorAll(".scroll-fade");
+        scrollElements.forEach((el) => observer.observe(el));
+      });
     </script>
   </body>
 </html>

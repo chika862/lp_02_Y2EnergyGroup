@@ -47,6 +47,7 @@
     --leading-loose: 2;
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -208,6 +209,9 @@
 @layer utilities {
   .pointer-events-none {
     pointer-events: none;
+  }
+  .visible {
+    visibility: visible;
   }
   .absolute {
     position: absolute;
@@ -981,6 +985,18 @@
   .underline {
     text-decoration-line: underline;
   }
+  .shadow {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-lg {
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-md {
+    --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
   .shadow-sm {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -1004,9 +1020,25 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .delay-1 {
+    transition-delay: 1ms;
+  }
+  .delay-2 {
+    transition-delay: 2ms;
+  }
+  .delay-3 {
+    transition-delay: 3ms;
+  }
+  .delay-4 {
+    transition-delay: 4ms;
+  }
   .duration-300 {
     --tw-duration: 300ms;
     transition-duration: 300ms;
+  }
+  .ease-out {
+    --tw-ease: var(--ease-out);
+    transition-timing-function: var(--ease-out);
   }
   .placeholder\:font-sans {
     &::placeholder {
@@ -1178,11 +1210,6 @@
       width: 80%;
     }
   }
-  .md\:w-\[90\%\] {
-    @media (width >= 48rem) {
-      width: 90%;
-    }
-  }
   .md\:w-\[120px\] {
     @media (width >= 48rem) {
       width: 120px;
@@ -1206,16 +1233,6 @@
   .md\:max-w-\[80\%\] {
     @media (width >= 48rem) {
       max-width: 80%;
-    }
-  }
-  .md\:max-w-\[90\%\] {
-    @media (width >= 48rem) {
-      max-width: 90%;
-    }
-  }
-  .md\:max-w-\[100\%\] {
-    @media (width >= 48rem) {
-      max-width: 100%;
     }
   }
   .md\:max-w-full {
@@ -1368,11 +1385,6 @@
       font-size: 6.5rem;
     }
   }
-  .md\:text-\[7\.5rem\] {
-    @media (width >= 48rem) {
-      font-size: 7.5rem;
-    }
-  }
   .md\:text-\[9rem\] {
     @media (width >= 48rem) {
       font-size: 9rem;
@@ -1419,11 +1431,6 @@
       margin-block: calc(var(--spacing) * 4);
     }
   }
-  .lg\:my-9 {
-    @media (width >= 64rem) {
-      margin-block: calc(var(--spacing) * 9);
-    }
-  }
   .lg\:my-14 {
     @media (width >= 64rem) {
       margin-block: calc(var(--spacing) * 14);
@@ -1437,6 +1444,11 @@
   .lg\:mt-0 {
     @media (width >= 64rem) {
       margin-top: calc(var(--spacing) * 0);
+    }
+  }
+  .lg\:mt-4 {
+    @media (width >= 64rem) {
+      margin-top: calc(var(--spacing) * 4);
     }
   }
   .lg\:mt-6 {
@@ -1482,6 +1494,16 @@
   .lg\:mb-0 {
     @media (width >= 64rem) {
       margin-bottom: calc(var(--spacing) * 0);
+    }
+  }
+  .lg\:mb-14 {
+    @media (width >= 64rem) {
+      margin-bottom: calc(var(--spacing) * 14);
+    }
+  }
+  .lg\:mb-18 {
+    @media (width >= 64rem) {
+      margin-bottom: calc(var(--spacing) * 18);
     }
   }
   .lg\:mb-20 {
@@ -1748,9 +1770,9 @@
       padding-block: calc(var(--spacing) * 10);
     }
   }
-  .lg\:py-15 {
+  .lg\:py-12 {
     @media (width >= 64rem) {
-      padding-block: calc(var(--spacing) * 15);
+      padding-block: calc(var(--spacing) * 12);
     }
   }
   .lg\:py-18 {
@@ -1781,11 +1803,6 @@
   .lg\:pt-12 {
     @media (width >= 64rem) {
       padding-top: calc(var(--spacing) * 12);
-    }
-  }
-  .lg\:pt-15 {
-    @media (width >= 64rem) {
-      padding-top: calc(var(--spacing) * 15);
     }
   }
   .lg\:pt-20 {
@@ -1940,12 +1957,6 @@
       line-height: var(--leading-loose);
     }
   }
-  .lg\:leading-relaxed {
-    @media (width >= 64rem) {
-      --tw-leading: var(--leading-relaxed);
-      line-height: var(--leading-relaxed);
-    }
-  }
   .lg\:tracking-\[0\.3rem\] {
     @media (width >= 64rem) {
       --tw-tracking: 0.3rem;
@@ -2029,6 +2040,41 @@ html {
 }
 .custom-checkbox input[type="checkbox"]:checked ~ .checkmark::after {
   opacity: 1;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fv-content {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+.fv-content.delay-1 {
+  animation-delay: 0.2s;
+}
+.fv-content.delay-2 {
+  animation-delay: 0.4s;
+}
+.fv-content.delay-3 {
+  animation-delay: 0.6s;
+}
+.fv-content.delay-4 {
+  animation-delay: 0.8s;
+}
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 @property --tw-translate-x {
   syntax: "*";
@@ -2166,6 +2212,10 @@ html {
   syntax: "*";
   inherits: false;
 }
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -2199,6 +2249,7 @@ html {
       --tw-ring-offset-shadow: 0 0 #0000;
       --tw-outline-style: solid;
       --tw-duration: initial;
+      --tw-ease: initial;
     }
   }
 }
