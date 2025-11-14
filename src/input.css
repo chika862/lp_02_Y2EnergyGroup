@@ -117,6 +117,9 @@ html {
 .fv-content.delay-4 {
   animation-delay: 0.8s;
 }
+.fv-content.delay-5 {
+  animation-delay: 1s;
+}
 
 /* スクロールアニメーション */
 .scroll-fade {
