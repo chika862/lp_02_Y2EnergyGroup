@@ -2028,6 +2028,13 @@ body {
 #submitButton:hover {
   transform: scale(1.05);
 }
+header a img {
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+header a:hover img {
+  filter: brightness(1.1);
+  opacity: 0.9;
+}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
